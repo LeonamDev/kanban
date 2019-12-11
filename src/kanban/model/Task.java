@@ -8,15 +8,17 @@ import kanban.enums.TaskState;;
 public class Task {
 	
 	private String name;
+	private String kanban;
 	private TaskState state;
 	
 	/**
 	 * @param name
 	 * @param state
 	 */
-	public Task(String name) {
+	public Task(String name, String kanban) {
 		super();
 		this.name = name.trim();
+		this.kanban = kanban.trim();
 		this.state = TaskState.TO_DO;
 	}
 	
