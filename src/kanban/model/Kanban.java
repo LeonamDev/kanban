@@ -19,16 +19,11 @@ public class Kanban {
 
 	/**
 	 * @param name
-	 * @param state
-	 * @param users
-	 * @param tasks
 	 */
-	public Kanban(String name, KanbanState state, Set<User> users, Set<Task> tasks) {
+	public Kanban(String name) {
 		super();
 		this.name = name.trim();
-		this.state = state;
-		this.users = users;
-		this.tasks = tasks;
+		this.state = KanbanState.ACTIVE;
 	}
 
 	/**
@@ -86,5 +81,15 @@ public class Kanban {
 	public void setTasks(Set<Task> tasks) {
 		this.tasks = tasks;
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Kanban [name=" + name + ", state=" + state + "]";
+	}
+
+	
 
 }

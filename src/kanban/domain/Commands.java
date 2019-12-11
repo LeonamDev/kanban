@@ -12,7 +12,8 @@ public enum Commands {
 	KANBAN_TASK_EXCLUDE,
 	KANBAN_USER_CREATE,
 	KANBAN_USER_EDIT,
-	KANBAN_USER_LIST;
+	KANBAN_USER_LIST,
+	KANBAN_SHOW_LOGS;
 	
 	
 	public static Commands select(String[] args) {
