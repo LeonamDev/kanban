@@ -10,22 +10,32 @@ public class User {
 
 	private String name;
 	private String cpf;
-
+	private String task;
+	private boolean cpfCheck;
 	/**
 	 * @param name
 	 * @param cpf
 	 */
-	public User(String name, String cpf) {
-		super();
-		this.name = name.trim();
+	
 
+	
+	public User(String task, String name, String cpf) {
+		
+		this.task = task.trim();
+		this.name = name.trim();
+		
 		if (CPFValidator.isCPF(cpf) == true) {
-			this.cpf = cpf;
+			this.cpf = cpf.trim();
+			cpfCheck = true;
 		} else {
 			System.err.println("Error, Invalid CPF!");
+			cpfCheck = false;
 		}
+		
 
 	}
+
+
 
 	/**
 	 * @return the name
@@ -42,10 +52,33 @@ public class User {
 	}
 
 	/**
-	 * @return the cpf
+	 * @return the cpfCheck
 	 */
-	public String getCpf() {
-		return cpf;
+	public boolean getcpfCheck() {
+		return cpfCheck;
 	}
+
+	/**
+	 * @return the task
+	 */
+	private String getTask() {
+		return task;
+	}
+
+	/**
+	 * @param task the task to set
+	 */
+	private void setTask(String task) {
+		this.task = task;
+	}
+
+	/**
+	 * @param cpf the cpf to set
+	 */
+	private void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+	
+	
 
 }

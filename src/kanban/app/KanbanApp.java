@@ -10,6 +10,7 @@ import java.util.Set;
 
 import kanban.model.Kanban;
 import kanban.model.Task;
+import kanban.model.User;
 
 /**
  * @author leonam
@@ -20,6 +21,7 @@ public class KanbanApp {
 	private static List<String> logger = new ArrayList<>();
 	private static Set<Kanban> kanbans = new HashSet<Kanban>();
 	private static Set<Task> tasks = new HashSet<Task>();
+	private static Set<User> users = new HashSet<User>();
 
 	public static void main(String[] args) {
 
@@ -46,8 +48,8 @@ public class KanbanApp {
 				Kanban kanban = new Kanban(kanbanName);
 				kanbans.add(kanban);
 
-				logger.add(LocalDate.now()+ "," + LocalTime.now()+ "," +kanbanName+ "," 
-						+kanban.getState() + "," + "admin" + "," + "15612354512" );
+				logger.add(LocalDate.now()+ "," + LocalTime.now()+ ", Kanban: " +kanbanName+ "," 
+						+" Estado: "+kanban.getState() + "," + "admin" + "," + "15612354512" );
 
 				break;
 			case 2:
@@ -57,11 +59,19 @@ public class KanbanApp {
 				Task task = new Task(taskName[0], taskName[1]);
 				tasks.add(task);
 
-				logger.add(LocalDate.now()+ "," + LocalTime.now()+ "," +taskName[0]+ "," +taskName[1]+"," 
+				logger.add(LocalDate.now()+ "," + LocalTime.now()+ ", tarefa" +taskName[0]+ ", estado" +taskName[1]+"," 
 						+task.getState() + "," + "admin" + "," + "15612354512" );
 				break;
 			case 3:
-
+				System.out.println("Please, input the Task name, user name and CPF:");
+				String taskUser = scan.nextLine();
+				String[] userName = taskUser.split(" ");
+				User user = new User(userName[0], userName[1], userName[2]);
+				users.add(user);
+				if(user.getcpfCheck()==true) {
+				logger.add(LocalDate.now()+ "," + LocalTime.now()+ ", Task name:" +userName[0]+ ","
+						+ " User Name:" +userName[1]+", CPF:" + userName[2]);
+				}
 				break;
 			case 4:
 				System.out.println("Showing kanbans:");
